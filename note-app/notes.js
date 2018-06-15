@@ -1,14 +1,38 @@
 console.log("starting notes.js ")
 
-//console.log(module);
+const fs = require('fs');
 
-module.exports.age=25
+var addNote=(title,body)=>{
+   
+   var notes = [];
+   var note ={
+   	title,
+   	body
+   };
 
-module.exports.addNote =  ()=>{
+   try{
+   	  	var notestring =  fs.readFileSync('notes_data.json');
+  	notes = JSON.parse(notestring);
 
-	console.log('add Note')
 
-	return 'new Note';
+   } catch(e){
+
+   }
+
+
+   notes.push(note);
+   fs.writeFileSync('notes_data.json',JSON.stringify(notes));
+
 
 };
+
+var getAll=()=>{
+	console.log('getting all note');
+}
+
+module.exports={
+	addNote,
+	getAll
+};
+
 
