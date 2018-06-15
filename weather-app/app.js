@@ -19,7 +19,6 @@ const argv = yargs
 .alias('help','h')
 .argv;
 
-
 geocode.geocodeAddress(argv.address,(error, results)=>{
 
 	if (error) {console.log(error);}
@@ -30,8 +29,7 @@ geocode.geocodeAddress(argv.address,(error, results)=>{
 		if(error){console.log(werror);}
 
 		else{
-
-			console.log(`its currently ${wresults.temperature} but feels like ${wresults.apparentTemperature}`);
+		console.log(`its currently ${wresults.temperature} but feels like ${wresults.apparentTemperature}`);
 		}
 
 });

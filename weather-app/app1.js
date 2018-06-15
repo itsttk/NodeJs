@@ -27,7 +27,6 @@ axios.get(geocodeURL).then((response)=>{
 	if(response.data.status==='ZERO_RESULTS'){
 		throw new Error('unable to find address');
 	}
-
 	var lat = response.data.results[0].geometry.location.lat;
 	var long = response.data.results[0].geometry.location.lng;
 	console.log(response.data.results[0].formatted_address);
@@ -39,17 +38,14 @@ axios.get(geocodeURL).then((response)=>{
 	var temp = response.data.currently.temperature;
 	var apparent_temp = response.data.currently.apparentTemperature;
 
-			console.log(`its currently ${temp} but feels like ${apparent_temp}`);
+	console.log(`its currently ${temp} but feels like ${apparent_temp}`);
 
 
 }).catch((e)=>{
 
 	if(e.code ==='ENOTFOUND'){
 			console.log('unable to find servers');
-
-
 	}	
-
 	else{
 		console.log(e.message)
 	}
